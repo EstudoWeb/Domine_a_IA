@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milionário Com IA | Programa Avançado</title>
+    <meta name="description" content="Aprenda a transformar Inteligência Artificial em renda real, criando produtos, sistemas e automações.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0118; /* Preto profundo com toque roxo */
+            color: #e2e8f0;
+        }
+        
+        /* Custom Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 15px rgba(147, 51, 234, 0.25), 
+                         0 0 30px rgba(59, 130, 246, 0.2);
+            animation: neon-pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes neon-pulse {
+            0%, 100% { text-shadow: 0 0 15px rgba(147, 51, 234, 0.25), 0 0 30px rgba(59, 130, 246, 0.2); }
+            50% { text-shadow: 0 0 18px rgba(147, 51, 234, 0.3), 0 0 35px rgba(59, 130, 246, 0.25); }
+        }
+        
+        .glass-card {
+            background: rgba(15, 5, 30, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(147, 51, 234, 0.3);
+            box-shadow: 0 0 20px rgba(147, 51, 234, 0.2),
+                        inset 0 0 20px rgba(59, 130, 246, 0.1);
+        }
+
+        .gradient-btn {
+            background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+            background-size: 200% auto;
+            transition: all 0.5s ease;
+            box-shadow: 0 0 25px rgba(139, 92, 246, 0.6),
+                        0 0 50px rgba(59, 130, 246, 0.4);
+        }
+
+        .gradient-btn:hover {
+            background-position: right center;
+            box-shadow: 0 0 35px rgba(139, 92, 246, 0.9),
+                        0 0 70px rgba(59, 130, 246, 0.6);
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        .tech-grid-bg {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(147, 51, 234, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+        }
+
+        /* Neon Border Animation */
+        @keyframes neon-border {
+            0%, 100% { border-color: rgba(147, 51, 234, 0.5); }
+            50% { border-color: rgba(59, 130, 246, 0.8); }
+        }
+
+        .neon-border {
+            animation: neon-border 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Background FX -->
+    <div class="fixed inset-0 z-[-1] tech-grid-bg pointer-events-none"></div>
+    <div class="fixed top-0 left-0 w-full h-full z-[-2] overflow-hidden pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/20 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-[10%] right-[-10%] w-[40%] h-[40%] bg-purple-600/20 rounded-full blur-[120px]"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 top-0 start-0 border-b border-white/5 bg-slate-950/80 backdrop-blur-md transition-all duration-300" id="navbar">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <span class="self-center text-2xl font-bold whitespace-nowrap text-white tracking-tighter">
+                MILIONÁRIO <span class="text-purple-500">COM IA</span>
+            </span>
+            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                <a href="https://pay.kiwify.com.br/hki0aSB" target="_blank" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-all shadow-[0_0_15px_rgba(37,99,235,0.5)]">
+                    Comprar Agora
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden text-center px-4">
+        <div class="max-w-5xl mx-auto z-10 relative fade-in-up">
+            <div class="inline-block mb-6 px-5 py-2 rounded-full border border-purple-500/40 bg-purple-500/10 text-purple-300 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm">
+                🚀 Programa Avançado 2025
+            </div>
+            <h1 class="mb-8 text-4xl font-black tracking-tight leading-tight text-white md:text-6xl lg:text-7xl">
+                Domine a <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 glow-text">Inteligência Artificial</span> em 2025<br>e Crie Seu Próprio Produto Digital do Zero
+            </h1>
+            <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 xl:px-48 max-w-4xl mx-auto leading-relaxed">
+                Aprenda a criar produtos digitais, sistemas e automações poderosas usando IA — mesmo começando do absoluto zero. Sem experiência prévia. Sem investimento inicial.
+            </p>
+            <div class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+                <a href="https://pay.kiwify.com.br/hki0aSB" target="_blank" class="gradient-btn inline-flex justify-center items-center py-5 px-10 text-base font-bold text-white rounded-full shadow-lg">
+                    QUERO COMEÇAR AGORA
+                    <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </a>
+            </div>
+            <!-- Quick Stats / Trust Indicators -->
+            <div class="flex justify-center gap-8 text-gray-500 text-sm font-medium">
+                <div class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>Acesso Imediato</div>
+                <div class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>100% Online</div>
+                <div class="flex items-center"><span class="w-2 h-2 bg-amber-500 rounded-full mr-2"></span>Método Validado</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Context Section -->
+    <section class="py-20 bg-slate-900/50 border-y border-white/5">
+        <div class="max-w-4xl mx-auto px-4 text-center fade-in-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">O Avanço Impressionante da IA em 2025</h2>
+            
+            <div class="glass-card p-8 md:p-12 rounded-2xl text-left md:text-center shadow-2xl relative overflow-hidden group">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700"></div>
+                
+                <p class="text-gray-300 text-lg mb-6 leading-relaxed">
+                    <strong class="text-white">2025 marcou o maior salto tecnológico da história.</strong><br>
+                    A Inteligência Artificial se tornou acessível, poderosa e capaz de criar conteúdos, produtos e soluções completas em uma velocidade absurda.
+                </p>
+                <p class="text-gray-300 text-lg mb-6 leading-relaxed">
+                    O que antes exigia equipes inteiras, hoje pode ser feito sozinho, direto do celular ou computador, e sem qualquer investimento inicial.
+                </p>
+                <p class="text-xl font-semibold text-blue-400">
+                    Oportunidades que antes eram restritas agora estão na mão de qualquer pessoa.
+                    <span class="block mt-2 text-white">E quem entender isso agora vai simplesmente ficar anos à frente da média.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Program Section -->
+    <section class="py-20 px-4 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <span class="text-purple-400 font-semibold tracking-wider uppercase text-sm">Conteúdo Premium</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white mt-2">Tudo o que você vai aprender por dentro</h2>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
+                    Dentro do programa, você vai aprender exatamente como dominar as ferramentas mais poderosas do mundo.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Feature Item -->
+                <div class="glass-card p-6 rounded-xl hover:bg-white/5 transition duration-300 fade-in-up">
+                    <div class="w-12 h-12 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Produtos Digitais do Zero</h3>
+                    <p class="text-gray-400 text-sm">Aprenda a conceber, estruturar e finalizar produtos digitais inteiros usando apenas IA.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl hover:bg-white/5 transition duration-300 fade-in-up" style="transition-delay: 100ms;">
+                    <div class="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center text-purple-400 mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Materiais Profissionais</h3>
+                    <p class="text-gray-400 text-sm">Crie documentos, apostilas, apresentações e ebooks com design de alta qualidade.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl hover:bg-white/5 transition duration-300 fade-in-up" style="transition-delay: 200ms;">
+                    <div class="w-12 h-12 bg-amber-500/20 rounded-lg flex items-center justify-center text-amber-400 mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Sistemas e Automações</h3>
+                    <p class="text-gray-400 text-sm">Configure fluxos automáticos que trabalham 24/7 para você.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl hover:bg-white/5 transition duration-300 fade-in-up" style="transition-delay: 300ms;">
+                    <div class="w-12 h-12 bg-pink-600/20 rounded-lg flex items-center justify-center text-pink-400 mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Identidade Visual & Design</h3>
+                    <p class="text-gray-400 text-sm">Produza logotipos, capas, posts e designs impressionantes sem ser designer.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl hover:bg-white/5 transition duration-300 fade-in-up" style="transition-delay: 400ms;">
+                    <div class="w-12 h-12 bg-cyan-600/20 rounded-lg flex items-center justify-center text-cyan-400 mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Negócios Digitais</h3>
+                    <p class="text-gray-400 text-sm">Construa negócios estruturados prontos para venda e escala.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl hover:bg-white/5 transition duration-300 fade-in-up" style="transition-delay: 500ms;">
+                    <div class="w-12 h-12 bg-green-600/20 rounded-lg flex items-center justify-center text-green-400 mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Venda Sem Investir</h3>
+                    <p class="text-gray-400 text-sm">Métodos validados para colocar produtos no ar sem gastar com anúncios.</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center fade-in-up">
+                <p class="text-lg text-gray-300 mb-8">
+                    Você aprende teoria, prática e caminhos validados para transformar IA em resultado real.<br>
+                    <strong>Sem complicação. Sem enrolação. Apenas o passo a passo claro.</strong>
+                </p>
+                <a href="https://pay.kiwify.com.br/hki0aSB" target="_blank" class="gradient-btn inline-block py-4 px-8 text-lg font-bold text-white rounded-lg">
+                    GARANTIR ACESSO AGORA
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Benefits (Beginners) -->
+    <section class="py-20 bg-black text-white relative overflow-hidden">
+        <div class="absolute left-0 top-1/2 -translate-y-1/2 w-64 h-64 bg-blue-700/20 rounded-full blur-[100px]"></div>
+        
+        <div class="max-w-6xl mx-auto px-4 relative z-10 flex flex-col lg:flex-row items-center gap-12">
+            <div class="lg:w-1/2 fade-in-up">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">O Poder da IA Para <span class="text-amber-400">Iniciantes</span></h2>
+                <p class="text-gray-400 text-lg mb-8">Não importa seu nível de conhecimento atual. As ferramentas de hoje são feitas para facilitar a vida, não para complicar.</p>
+                
+                <div class="space-y-4">
+                    <div class="flex items-start gap-3">
+                        <div class="mt-1 min-w-5 min-h-5 rounded-full bg-green-500/20 flex items-center justify-center">
+                            <svg class="w-3 h-3 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        <p class="text-gray-300">Criar coisas que antes eram impossíveis sem experiência</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="mt-1 min-w-5 min-h-5 rounded-full bg-green-500/20 flex items-center justify-center">
+                            <svg class="w-3 h-3 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        <p class="text-gray-300">Acessar tecnologias que fazem 90% do trabalho pesado</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="mt-1 min-w-5 min-h-5 rounded-full bg-green-500/20 flex items-center justify-center">
+                            <svg class="w-3 h-3 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        <p class="text-gray-300">Economizar tempo e dinheiro</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="mt-1 min-w-5 min-h-5 rounded-full bg-green-500/20 flex items-center justify-center">
+                            <svg class="w-3 h-3 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        <p class="text-gray-300">Criar projetos completos em minutos</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="mt-1 min-w-5 min-h-5 rounded-full bg-green-500/20 flex items-center justify-center">
+                            <svg class="w-3 h-3 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        <p class="text-gray-300">Montar um negócio digital sem gastos iniciais</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lg:w-1/2 fade-in-up">
+                <!-- Visual representation of productivity -->
+                <div class="glass-card p-8 rounded-2xl border border-purple-500/30 relative">
+                    <div class="absolute -top-5 -right-5 w-20 h-20 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full blur-xl opacity-50"></div>
+                    <h3 class="text-xl font-bold text-white mb-4">Aumento de Produtividade</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-400">Modo Tradicional</span>
+                                <span class="text-gray-400">10%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-gray-500 h-2.5 rounded-full" style="width: 10%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-blue-300 font-bold">Com IA (Seu novo poder)</span>
+                                <span class="text-blue-300 font-bold">100%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-gradient-to-r from-blue-500 to-purple-500 h-2.5 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-6 text-sm text-gray-400 italic">"O que levava semanas, agora leva horas."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Target Audience -->
+    <section class="py-20 bg-slate-950 text-center px-4">
+        <div class="max-w-4xl mx-auto fade-in-up">
+            <h2 class="text-3xl font-bold text-white mb-12">Para quem é esse programa?</h2>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <div class="bg-slate-900 border border-slate-800 px-6 py-3 rounded-full text-gray-300 font-medium shadow-md hover:border-blue-500 hover:text-blue-400 transition-colors">
+                    Iniciantes que querem aprender IA passo a passo
+                </div>
+                <div class="bg-slate-900 border border-slate-800 px-6 py-3 rounded-full text-gray-300 font-medium shadow-md hover:border-purple-500 hover:text-purple-400 transition-colors">
+                    Pessoas que querem montar seus primeiros produtos digitais
+                </div>
+                <div class="bg-slate-900 border border-slate-800 px-6 py-3 rounded-full text-gray-300 font-medium shadow-md hover:border-amber-500 hover:text-amber-400 transition-colors">
+                    Quem busca renda extra
+                </div>
+                <div class="bg-slate-900 border border-slate-800 px-6 py-3 rounded-full text-gray-300 font-medium shadow-md hover:border-pink-500 hover:text-pink-400 transition-colors">
+                    Criadores de conteúdo
+                </div>
+                <div class="bg-slate-900 border border-slate-800 px-6 py-3 rounded-full text-gray-300 font-medium shadow-md hover:border-cyan-500 hover:text-cyan-400 transition-colors">
+                    Empreendedores digitais
+                </div>
+                <div class="bg-slate-900 border border-slate-800 px-6 py-3 rounded-full text-gray-300 font-medium shadow-md hover:border-green-500 hover:text-green-400 transition-colors">
+                    Autônomos e freelancers
+                </div>
+                <div class="bg-slate-900 border border-slate-800 px-6 py-3 rounded-full text-gray-300 font-medium shadow-md hover:border-white transition-colors">
+                    Quem quer se tornar referência no mercado
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Social Proof -->
+    <section class="py-20 bg-gradient-to-b from-slate-900 to-black border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-white mb-12 fade-in-up">Resultados Reais</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="glass-card p-8 rounded-xl fade-in-up">
+                    <div class="flex text-amber-400 mb-4">★★★★★</div>
+                    <p class="text-gray-300 italic mb-6">“Finalmente entendi como usar IA para criar algo que realmente vende. O conteúdo é transformador.”</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-xs font-bold text-white">RJ</div>
+                        <div>
+                            <p class="text-white font-semibold text-sm">Ricardo J.</p>
+                            <p class="text-gray-500 text-xs">Empreendedor</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="glass-card p-8 rounded-xl fade-in-up" style="transition-delay: 100ms;">
+                    <div class="flex text-amber-400 mb-4">★★★★★</div>
+                    <p class="text-gray-300 italic mb-6">“Eu achava tudo complicado, mas aqui ficou simples e direto. Comecei do zero e já tenho meu sistema rodando.”</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-xs font-bold text-white">AL</div>
+                        <div>
+                            <p class="text-white font-semibold text-sm">Ana Lúcia</p>
+                            <p class="text-gray-500 text-xs">Designer Freelancer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="glass-card p-8 rounded-xl fade-in-up" style="transition-delay: 200ms;">
+                    <div class="flex text-amber-400 mb-4">★★★★★</div>
+                    <p class="text-gray-300 italic mb-6">“Em uma semana consegui criar meu primeiro produto digital. O passo a passo é muito claro.”</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-xs font-bold text-white">CS</div>
+                        <div>
+                            <p class="text-white font-semibold text-sm">Carlos S.</p>
+                            <p class="text-gray-500 text-xs">Criador de Conteúdo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Deliverables List -->
+    <section class="py-20 px-4">
+        <div class="max-w-4xl mx-auto glass-card rounded-3xl p-8 md:p-16 border border-purple-500/20 fade-in-up">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-white">O que você recebe agora</h2>
+                <p class="text-purple-400 mt-2">Acesso imediato a todo o arsenal</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
+                <div class="flex items-center gap-3 text-gray-300">
+                    <svg class="w-5 h-5 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    Material completo do iniciante ao avançado
+                </div>
+                <div class="flex items-center gap-3 text-gray-300">
+                    <svg class="w-5 h-5 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    Passo a passo para criar produtos digitais
+                </div>
+                <div class="flex items-center gap-3 text-gray-300">
+                    <svg class="w-5 h-5 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    Tutoriais práticos e diretos
+                </div>
+                <div class="flex items-center gap-3 text-gray-300">
+                    <svg class="w-5 h-5 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    Atividades guiadas
+                </div>
+                <div class="flex items-center gap-3 text-gray-300">
+                    <svg class="w-5 h-5 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    Modelos prontos (Copiar e Colar)
+                </div>
+                <div class="flex items-center gap-3 text-gray-300">
+                    <svg class="w-5 h-5 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    Roteiros e estruturas profissionais
+                </div>
+                <div class="flex items-center gap-3 text-gray-300">
+                    <svg class="w-5 h-5 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    Ferramentas e estratégias secretas
+                </div>
+                <div class="flex items-center gap-3 text-gray-300">
+                    <svg class="w-5 h-5 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    Orientação completa para vender online
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Final CTA -->
+    <section class="py-24 relative overflow-hidden text-center px-4">
+        <!-- Background Glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-600/30 rounded-full blur-[120px] pointer-events-none"></div>
+        
+        <div class="relative z-10 max-w-3xl mx-auto fade-in-up">
+            <h2 class="text-4xl md:text-5xl font-black text-white mb-6">A IA nunca esteve tão acessível.</h2>
+            <p class="text-xl text-gray-300 mb-10">Esse é o momento perfeito para entrar. Não deixe para depois o que vai mudar o seu jogo hoje.</p>
+            
+            <a href="https://pay.kiwify.com.br/hki0aSB" target="_blank" class="gradient-btn inline-flex justify-center items-center py-6 px-12 text-xl font-bold text-white rounded-full shadow-2xl hover:scale-105 transition-transform">
+                Quero começar agora
+                <svg class="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+            
+            <div class="mt-8 flex justify-center items-center space-x-4">
+                <img src="https://cdn-icons-png.flaticon.com/512/4103/4103112.png" alt="Secure" class="h-8 opacity-70 invert">
+                <span class="text-sm text-gray-500">Pagamento 100% Seguro via Kiwify</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-white/10 py-10">
+        <div class="max-w-screen-xl mx-auto px-4 text-center">
+            <span class="text-2xl font-bold text-white tracking-tighter block mb-4">
+                MILIONÁRIO <span class="text-purple-500">COM IA</span>
+            </span>
+            <p class="text-gray-500 text-sm mb-6">
+                &copy; 2025 Milionário Com IA. Todos os direitos reservados.
+            </p>
+            <div class="text-xs text-gray-600 space-x-4">
+                <a href="#" class="hover:text-white transition">Termos de Uso</a>
+                <a href="#" class="hover:text-white transition">Política de Privacidade</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const elements = document.querySelectorAll('.fade-in-up');
+            elements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
